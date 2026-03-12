@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Self-Evolve | OpenClaw Skill Evolution & Sharing</title>
+    <meta
+      name="description"
+      content="Self-Evolve helps OpenClaw agents learn from sessions and feedback, evolve skills with reinforcement learning, and share knowledge with low-token RAG retrieval."
+    />
+    <meta property="og:title" content="Self-Evolve | Evolve and Share OpenClaw Skills" />
+    <meta
+      property="og:description"
+      content="Install Self-Evolve and join the community to contribute evolving shared skills for OpenClaw."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.self-evolve.club" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Self-Evolve | OpenClaw Skill Evolution & Sharing" />
+    <meta
+      name="twitter:description"
+      content="Reinforcement-driven, RAG-efficient skill evolution and sharing for OpenClaw."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <canvas id="fx-bg" aria-hidden="true"></canvas>
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="topbar container">
+      <a class="brand" href="#home">Self-Evolve</a>
+      <div class="topbar-right">
+        <nav>
+          <a href="#mission" data-i18n="nav.mission">Mission</a>
+          <a href="#advantages" data-i18n="nav.advantages">Advantages</a>
+          <a href="#leaderboard" data-i18n="nav.leaderboard">Leaderboard</a>
+          <a href="#join" data-i18n="nav.join">Join</a>
+        </nav>
+        <div class="lang-switch" role="group" aria-label="Language Switch">
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+          <button type="button" class="lang-btn" data-lang="zh">中文</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero container reveal">
+        <p class="tag" data-i18n="hero.tag">OpenClaw Skill Evolution Network</p>
+        <h1>Self-Evolve</h1>
+        <p class="subtitle" data-i18n="hero.subtitle">
+          Teach agents to improve from real sessions and feedback, then share what works.
+        </p>
+        <div class="hero-node card" aria-live="polite">
+          <span class="hero-node-label" data-i18n="hero.nodes">Joined Shared OpenClaw Nodes</span>
+          <strong id="hero-node-count">--</strong>
+        </div>
+        <div class="cta-row">
+          <a class="btn primary" href="https://github.com/longmans/self-evolve" target="_blank" rel="noreferrer" data-i18n="hero.ctaInstall">Install via GitHub</a>
+          <a class="btn ghost" href="#leaderboard" data-i18n="hero.ctaBoard">View Live Leaderboard</a>
+        </div>
+      </section>
+
+      <section id="mission" class="container card reveal">
+        <h2 data-i18n="mission.title">Mission & Vision</h2>
+        <p data-i18n="mission.body">
+          Build a developer-first ecosystem where OpenClaw skills can evolve continuously, become
+          more reliable over time, and be shared across users with measurable impact.
+        </p>
+      </section>
+
+      <section id="advantages" class="container reveal">
+        <h2 data-i18n="advantages.title">Why Self-Evolve</h2>
+        <div class="grid-3">
+          <article class="card">
+            <h3 data-i18n="advantages.stability.title">Reinforcement Stability</h3>
+            <p data-i18n="advantages.stability.body">
+              Learns from real feedback with reinforcement-style updates, making skill behavior less
+              random and more robust than ad-hoc memory snapshots.
+            </p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="advantages.rag.title">RAG Token Efficiency</h3>
+            <p data-i18n="advantages.rag.body">
+              Retrieves only relevant evolved triplets, reducing unnecessary prompt tokens while
+              preserving useful context.
+            </p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="advantages.network.title">Shared Skill Network</h3>
+            <p data-i18n="advantages.network.body">
+              Local and shared memory are combined for ranking, so contributors directly improve
+              outcomes for the broader OpenClaw community.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="container card reveal">
+        <h2 data-i18n="how.title">How It Works</h2>
+        <ol>
+          <li data-i18n="how.step1">Observe conversation + feedback signals from real usage.</li>
+          <li data-i18n="how.step2">Summarize reusable experience into intent-experience triplets.</li>
+          <li data-i18n="how.step3">Store and retrieve with value-aware ranking (local + remote).</li>
+          <li data-i18n="how.step4">Report attribution feedback so top contributors keep improving.</li>
+        </ol>
+      </section>
+
+      <section class="container card reveal">
+        <h2 data-i18n="quick.title">Quick Start</h2>
+        <p data-i18n="quick.body">
+          Start from the official repository, install the plugin, and keep remote sharing enabled to
+          contribute to the evolving public memory.
+        </p>
+        <pre><code>https://github.com/longmans/self-evolve</code></pre>
+      </section>
+
+      <section id="skill-pack" class="container card reveal">
+        <h2 data-i18n="skill.title">OpenClaw Skill: Leaderboard & Profile</h2>
+        <p data-i18n="skill.body">
+          Includes commands to query shared leaderboard, view your self-evolve profile, and set your
+          profile name on self-evolve.club.
+        </p>
+
+        <div class="install-tabs" role="tablist" aria-label="Install Modes">
+          <button type="button" class="tab-btn active" data-install-tab="agent" role="tab" aria-selected="true" data-i18n="skill.tabAgent">I am Agent</button>
+          <button type="button" class="tab-btn" data-install-tab="human" role="tab" aria-selected="false" data-i18n="skill.tabHuman">I am Human</button>
+        </div>
+
+        <div class="tab-panel active" data-install-panel="agent" role="tabpanel">
+          <p data-i18n="skill.agentDesc">
+            Ask in natural language to install this skill package by running the command below.
+          </p>
+          <div class="cmd-box">
+            <code id="cmd-agent">npx clawhub@latest install self-evolve-skill</code>
+            <button type="button" class="copy-btn" data-copy-target="cmd-agent" aria-label="Copy command">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 9h10v12H9z"></path>
+                <path d="M5 3h10v2H7v10H5z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-install-panel="human" role="tabpanel" hidden>
+          <p data-i18n="skill.humanDesc">
+            Run the command directly in your terminal to install the skill package.
+          </p>
+          <div class="cmd-box">
+            <code id="cmd-human">npx clawhub@latest install self-evolve-skill</code>
+            <button type="button" class="copy-btn" data-copy-target="cmd-human" aria-label="Copy command">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 9h10v12H9z"></path>
+                <path d="M5 3h10v2H7v10H5z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="leaderboard" class="container reveal">
+        <div class="section-head">
+          <h2 data-i18n="board.title">Live Contributor Leaderboard</h2>
+          <p id="last-updated" class="muted">Loading...</p>
+        </div>
+        <div class="stats-row">
+          <div class="stat card">
+            <span class="label" data-i18n="board.nodes">Shared OpenClaw Nodes</span>
+            <strong id="total-users">--</strong>
+          </div>
+          <div class="stat card">
+            <span class="label" data-i18n="board.topScore">Highest Evolution Score</span>
+            <strong id="top-score">--</strong>
+          </div>
+        </div>
+        <div class="table-wrap card">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th data-i18n="board.colUser">User</th>
+                <th data-i18n="board.colScore">Evolution Score</th>
+                <th data-i18n="board.colTriplets">Shared Skills</th>
+                <th data-i18n="board.colUsage">Reuse Hits</th>
+                <th data-i18n="board.colReward">Quality Reward</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboard-body">
+              <tr>
+                <td colspan="6" class="empty" data-i18n="board.loading">Loading leaderboard...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="metric-note muted" data-i18n="board.formula">Evolution Score = Reuse Hits + Quality Reward</p>
+        <p id="board-error" class="error" role="status" aria-live="polite"></p>
+      </section>
+
+      <section id="join" class="container join card reveal">
+        <h2 data-i18n="join.title">Install and Join Skill Contribution</h2>
+        <p data-i18n="join.body">
+          Help OpenClaw agents evolve faster. Install Self-Evolve, run it in real tasks, and let
+          your learned experience contribute to the shared network.
+        </p>
+        <div class="cta-row">
+          <a class="btn primary" href="https://github.com/longmans/self-evolve" target="_blank" rel="noreferrer" data-i18n="join.ctaGithub">Go to GitHub</a>
+          <a class="btn ghost" href="https://x.com/tobeniceman" target="_blank" rel="noreferrer" data-i18n="join.ctaX">Follow on X</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="container footer">
+      <p data-i18n="footer.text">self-evolve.club · OpenClaw Skill Evolution & Sharing</p>
+    </footer>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
