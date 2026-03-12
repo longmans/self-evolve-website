@@ -1,4 +1,4 @@
-const API_BASE = "https://self-evolve.club/api/v1";
+const API_BASE = "/api/v1";
 const LEADERBOARD_LIMIT = 20;
 const REFRESH_INTERVAL_MS = 30000;
 const LANG_STORAGE_KEY = "self_evolve_site_lang";
